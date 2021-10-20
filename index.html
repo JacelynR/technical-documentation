@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC Technical Documentation Page</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Merriweather&display=swap" rel="stylesheet">
+</head>
+<body>
+     
+       <nav id="navbar">
+           <header>
+            <h1>CSS FLEXBOX</h1>
+           </header>
+           <a href="#introduction" class="nav-link">Introduction</a>
+           <a href="#what_you_should_already_know" class="nav-link">What you should already know</a>
+           <a href="#flex_model" class="nav-link">Flex Model</a>
+           <a href="#flex_columns_or_rows" class="nav-link">Flex Columns or Rows</a>
+           <a href="#ordering_flex_items" class="nav-link">Ordering Flex Items</a>
+           <a href="#cross_browser_compatibility" class="nav-link">Cross Browser Compatibility</a>
+           <a href="#reference" class="nav-link">Reference</a> 
+         </nav>
+       
+       <main id="main-doc">
+         <section class="main-section" id="introduction">
+           <header>
+             <h2>Introduction</h2>
+           </header>
+           <p>Flexbox is a single dimensional layout method for arranging items in rows or columns. Items flex to fill additional spaces and shrink to fit into smaller spaces</p>
+           <p>In the past, the only reliable cross browser-compatible tools for creating CSS layouts were things like floats and positioning. These are okay, and they work, but in some ways they are limit what you can do.</p>
+           <p>
+             The following simple layout requirements are either, difficult or impossible, to achieve with past tools, in any kind of convenient, flexible way:
+         <ul>
+            <li>Vertically centering a block of content inside its parent.</li>
+            <li>Making all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.      </li>
+             <li>Making all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li>
+          </ul>
+        </p>
+           <p>Flexbox makes a lot of layout tasks much easier</p>
+         </section>
+         
+         <section class="main-section" id="what_you_should_already_know">
+           <header>
+             <h2>What you should already know</h2>
+           </header>
+           <ul>
+             <li>HTML basics</li>
+             <li>Overview of CSS</li>
+           </ul>
+         </section>
+         
+         <section class="main-section" id="flex_model">
+           <header>
+             <h2>Flex Model</h2>
+           </header>
+           <p>When elements are laid out as flex items, they are laid out along two axes:
+       </p>
+           <br>
+           
+           <img src="https://developer.mozilla.org/files/3739/flex_terms.png" alt"layout-example" />
+           <br>
+           <ul>
+             <li>
+               The main axis is the axis running in the direction the items to be flexed are being laid out in (e.g. as rows across the page, or columns down the page.) The start and end of this axis are called the <em>main start</em> and <em>main end</em>.
+             </li>
+             <li>
+               The cross axis is the axis running perpendicular to the direction the flex items are being laid out in. The start and end of this axis are called the <em>cross start</em> and <em>cross end</em>.
+               The parent element that has <code>display: flex</code> set on it is called the flex container.
+             </li>
+             <li>
+               The items being set out as flexible boxes inside the flex container are called flex items.
+             </li>
+           </ul>
+         </section>
+         
+         <section class="main-section" id="flex_columns_or_rows">
+           <header>
+             <h2>Flex Columns or Rows</h2>
+           </header>
+           <p>
+             Flexbox provides a property called <strong>flex-direction</strong> that specifies what direction the main axis runs in (the direction the flexbox children are laid out in) — by default this is set to row, which causes them to be laid out in a row in the direction your browser's default language works in (left to right normally).
+           </p>
+           <br>
+           <p>
+           <code>flex-direction: column;</code>
+           </p>
+           <br>
+           <p>
+             You'll see that this puts the items back in a column layout, much like they were before we added any CSS
+           </p>
+           <p>Note: You can also lay out flex items in a reverse direction using the <code>row-reverse</code> and <code>column-reverse</code> values</p>
+           
+         </section>
+         
+         
+         <section class="main-section" id="ordering_flex_items">
+           <header>
+             <h2>Ordering Flex Items</h2>
+           </header>
+           <p>
+             Flexbox is also great for changing the layout order of flex items, without affecting the source order. This is another task that is impossible to do with traditional layout methods.
+           </p>
+           <p>
+           <pre>
+             <code>
+               button:first-child {
+                 order: 1;
+               }
+             </code>
+           </pre>
+           </p>
+           <p>
+             When you do this, this is how this works:
+       
+       <ul>
+         <li>By default, all flex items have an order value of 0.</li>
+       <li>Flex items with higher order values set on them will appear later in the display order than items with lower order values.</li>
+       <li>Flex items with the same order value will appear in their source order. So if you have four items with order values of 2, 1, 1, and 0 set on them respectively, their display order would be 4th, 2nd, 3rd, then 1st.</li>
+       <li>The 3rd item appears after the 2nd because it has the same order value and is after it in the source order.</li>
+       </ul>
+       
+           </p>
+         </section>
+         
+         <section class="main-section" id="cross_browser_compatibility">
+           <header>
+             <h2>Cross Browser Compatibility</h2>
+           </header>
+           <p>
+             Flexbox support is available in most new browsers — Firefox, Chrome, Microsoft Edge, and IE 11, newer versions of Android/iOS, etc. But, you should be aware that there are still older browsers in use that don't support Flexbox (or do, as an out-of-date version of it.)</p>
+       
+       <p>While you are just learning, this doesn't matter too much. However, if you are considering using flexbox in a real website; do testing and make sure that your user experience is still accepted in as many browsers as possible.</p>
+       
+       <p>Flexbox is slighty difficult than some CSS features. For example, if a browser is missing a CSS drop shadow, then the site will likely still be usable. Not supporting flexbox features however will probably break a layout completely, making it unusable.</p>
+           </p>
+         </section>
+         
+         <section class="main-section" id="reference">
+           <header>
+             <h2>Reference</h2>
+           </header>
+           <p>All images and content on this page were directly obtained from: <a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></p>
+          
+         </section>  
+       </main>
+       
+       <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
+</body>
+</html>
